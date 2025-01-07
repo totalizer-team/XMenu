@@ -1,14 +1,11 @@
 {
   "name": "@totalizer/xmenu",
-  "version": "0.0.1-beta.1",
+  "version": "0.0.1-beta.3",
   "description": "Advanced React Components",
   "license": "MIT",
-  "main": "./lib/index",
-  "module": "./es/index",
-  "files": [
-    "lib",
-    "es"
-  ],
+  "main": "./dist/index",
+  "module": "./dist/index",
+  "files": [],
   "scripts": {
     "start": "npm run dev",
     "dev": "dumi dev",
