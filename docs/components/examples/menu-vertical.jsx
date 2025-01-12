@@ -1,5 +1,5 @@
 import Stack from '@mui/material/Stack';
-import VerticalMenu from '@totalizer/xmenu/VerticalMenu';
+import { VerticalMenu } from '@totalizer/xmenu';
 import React from 'react';
 
 import options from './options';

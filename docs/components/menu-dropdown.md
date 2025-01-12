@@ -7,9 +7,7 @@ toc: content
 mobile: false
 ---
 
-# Dropdown Menu
-
-## Demo
+# DropdownMenu
 
 <code src="./examples/menu-dropdown" ></code>
 
@@ -27,4 +25,4 @@ mobile: false
 
 ### MenuItem Props
 
-View Detailed API Configuration , [Base Menu List](./menu-list)
+View Detailed API Configuration , [BaseMenuList](./menu-list)

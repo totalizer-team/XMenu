@@ -1,43 +1,27 @@
-# xmenu
+# @totalizer/xmenu
 
-[![NPM version](https://img.shields.io/npm/v/xmenu.svg?style=flat)](https://npmjs.org/package/xmenu)
-[![NPM downloads](http://img.shields.io/npm/dm/xmenu.svg?style=flat)](https://npmjs.org/package/xmenu)
+> [ 0.0.1-beta.4 ] This project is currently in its testing phase, with the official release just around the corner.
 
-A react library developed with dumi
+Sleek and versatile menu components, built on Material UI, are designed to elevate your Front-End experience through customizable configurations.
 
-## Usage
+## Installation
 
-TODO
+Please note that [React](https://react.dev/) and [Material UI](https://mui.com/material-ui/getting-started/installation/) are peer dependencies, meaning you should ensure they are installed before installing XMenu.
 
-## Options
+Run one of the following commands to add XMenu to your project:
 
-TODO
-
-## Development
-
-```bash
-# install dependencies
-$ cnpm install
-
-# develop library by docs demo
-$ cnpm start
-
-# build library source code
-$ cnpm run build
-
-# build library source code in watch mode
-$ cnpm run build:watch
-
-# build docs
-$ cnpm run docs:build
-
-# Locally preview the production build.
-$ cnpm run docs:preview
-
-# check your project for potential problems
-$ cnpm run doctor
+```bash [npm]
+npm install -S @totalizer/xmenu
 ```
 
-## LICENSE
+```bash [yarn]
+yarn add -S @totalizer/xmenu
+```
 
-MIT
+```bash [pnpm]
+pnpm add -S @totalizer/xmenu
+```
+
+## License
+
+This project is licensed under the terms of the MIT license.

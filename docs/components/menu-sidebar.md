@@ -4,7 +4,7 @@ toc: content
 mobile: false
 ---
 
-# Sidebar Menu
+# SidebarMenu
 
 <code src="./examples/menu-sidebar"></code>
 
@@ -20,4 +20,4 @@ mobile: false
 
 ### MenuItem Props
 
-View Detailed API Configuration , [Base Menu List](./menu-list)
+View Detailed API Configuration , [BaseMenuList](./menu-list)

@@ -4,11 +4,13 @@ toc: content
 mobile: false
 ---
 
-# Base Menu List
-
-## Demo
+# BaseMenuList
 
 <code src="./examples/menu-list" ></code>
+
+### Prop `c`
+
+<img style="border:2px solid #ddd;border-radius:8px;" width="400px" src="/props-c.png" />
 
 ## API
 
@@ -22,28 +24,20 @@ mobile: false
 
 ### MenuItem Props
 
-c: `DEFAULT` | `Title` | `Divider`
+| Name | Type                              | Default   | Description |
+| ---- | --------------------------------- | --------- | ----------- |
+| c    | `DEFAULT` \| `Title` \| `Divider` | `DEFAULT` |             |
 
-#### DEFAULT
+#### `DEFAULT`
 
-| Name       | Type                                                                    | Default  | Description |
-| ---------- | ----------------------------------------------------------------------- | -------- | ----------- |
-| avatar     | `url string`                                                            | `""`     |             |
-| icon       | `Material Icon`                                                         | `null`   |             |
-| title      | `string`                                                                | `""`     |             |
-| info       | `string`                                                                | `""`     |             |
-| secondary  | `string`                                                                | `""`     |             |
-| label      | `string`                                                                | `""`     |             |
-| labelColor | `inherit \|primary \| secondary \| success \| error \| info \| warning` | `""`     |             |
-| disabled   | `bool`                                                                  | `false`  |             |
-| onClick    | `function`                                                              | `()=>{}` |             |
+View Detailed API Configuration , [BaseMenuItem](./menu-item)
 
-#### Title
+#### `Title`
 
 | Name  | Type     | Default | Description |
 | ----- | -------- | ------- | ----------- |
 | title | `string` | `""`    |             |
 
-#### Divider
+#### `Divider`
 
 No properties.

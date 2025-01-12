@@ -4,11 +4,13 @@ toc: content
 mobile: false
 ---
 
-# Base Menu Item
+# BaseMenuItem
 
-## Demo
+<code src="./examples/menu-item" ></code>
 
-<!-- <code src="./examples/menu-list" ></code> -->
+## Prop `item`
+
+<img style="border:2px solid #ddd;border-radius:8px;" width="400px" src="/props-item.png" />
 
 ## API
 

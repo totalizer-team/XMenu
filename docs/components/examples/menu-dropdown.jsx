@@ -4,7 +4,7 @@ import { Button, Stack } from '@mui/material';
 
 import SettingsIcon from '@mui/icons-material/Settings';
 
-import DropdownMenu from '@totalizer/xmenu/DropdownMenu';
+import { DropdownMenu } from '@totalizer/xmenu';
 
 import options from './options';
 export default () => {

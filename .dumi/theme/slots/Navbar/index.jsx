@@ -12,7 +12,7 @@ import InputIcon from '@mui/icons-material/Input';
 import MilitaryTechRoundedIcon from '@mui/icons-material/MilitaryTechRounded';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 
-import HorizontalMenu from '@totalizer/xmenu/HorizontalMenu';
+import { HorizontalMenu } from '@totalizer/xmenu';
 import { history, useLocation, useNavData } from 'dumi';
 
 const ICONS = {

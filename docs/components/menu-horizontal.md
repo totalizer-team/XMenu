@@ -7,9 +7,7 @@ toc: content
 mobile: false
 ---
 
-# Horizontal Menu
-
-## Demo
+# HorizontalMenu
 
 <code src="./examples/menu-horizontal" ></code>
 
@@ -25,4 +23,4 @@ mobile: false
 
 ### MenuItem Props
 
-View Detailed API Configuration , [Base Menu List](./menu-list)
+View Detailed API Configuration , [BaseMenuList](./menu-list)

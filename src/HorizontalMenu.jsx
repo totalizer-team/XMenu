@@ -110,8 +110,11 @@ const HorizontalMenu = function ({
       direction="row"
       spacing={0.25}
       alignItems={'inherit'}
-      {...other}
       flexWrap="wrap"
+      sx={{
+        ...sx,
+      }}
+      {...other}
     >
       {options.map((item, i) => {
         if (item.c) return null;
@@ -122,8 +125,6 @@ const HorizontalMenu = function ({
               item={item}
               isSelected={isSelected}
               onClick={onClick}
-              sx={sx}
-              {...other}
             />
           );
         } else {

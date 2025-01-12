@@ -1,7 +1,7 @@
-import VerticalMenu from '@totalizer/xmenu/VerticalMenu';
+import RadioButtonCheckedSharpIcon from '@mui/icons-material/RadioButtonCheckedSharp';
+import { VerticalMenu } from '@totalizer/xmenu';
 import { history, useLocation, useRouteMeta, useSidebarData } from 'dumi';
 import React, { useMemo } from 'react';
-
 import './index.less';
 
 const Sidebar = () => {
@@ -17,6 +17,9 @@ const Sidebar = () => {
         title: item.title,
         secondary: item.children.length,
         children: item.children.map((el) => ({
+          icon: (
+            <RadioButtonCheckedSharpIcon sx={{ fontSize: '10px !important' }} />
+          ),
           title: el.title,
           link: el.link,
           onClick: () => {

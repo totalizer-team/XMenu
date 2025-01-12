@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Box, Stack, Typography } from '@mui/material';
 
-import ContextMenu from '@totalizer/xmenu/ContextMenu';
+import { ContextMenu } from '@totalizer/xmenu';
 
 import options from './options';
 

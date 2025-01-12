@@ -1,6 +1,4 @@
 'use client';
-import Avatar from '@mui/material/Avatar';
-import AvatarGroup from '@mui/material/AvatarGroup';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
@@ -10,128 +8,99 @@ import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import { history } from 'umi';
 
-import HomeRectanglesDark from './home-rectangles-dark.svg';
-import HomeRectanglesLight from './home-rectangles-light.svg';
-
+import Compare from './Compare';
+import ContainerScroll from './ContainerScroll';
+import DashedBorder from './DashedBorder';
 export default function Hero() {
   const theme = useTheme();
-
+  const isDark = theme.palette.mode === 'dark';
   return (
     <Box
       sx={{
         overflow: 'hidden',
         position: 'relative',
+        backgroundImage: isDark
+          ? "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(255 255 255 / 0.1)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e\")"
+          : "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(0 0 0 / 0.04)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e\")",
+        backgroundRepeat: 'repeat',
+        borderBottom: 3,
+        borderColor: 'divider',
       }}
     >
-      <Box
-        sx={{
-          alignItems: 'center',
-          bottom: 0,
-          display: 'flex',
-          justifyContent: 'center',
-          left: 0,
-          position: 'absolute',
-          right: 0,
-          top: 0,
-          zIndex: 1,
-        }}
-      >
-        <Box
-          component="img"
-          src={
-            theme.palette.mode === 'dark'
-              ? HomeRectanglesDark
-              : HomeRectanglesLight
+      <Container maxWidth="md" sx={{ position: 'relative', py: 0, zIndex: 3 }}>
+        <ContainerScroll
+          titleComponent={
+            <Stack spacing={2} justifyContent="center" alignItems="center">
+              <DashedBorder
+                sx={{
+                  p: 2,
+                }}
+              >
+                <Typography
+                  sx={{
+                    fontSize: 32,
+                    fontWeight: 600,
+                    lineHeight: 1.2,
+                    textAlign: 'center',
+                  }}
+                >
+                  @totalizer /{' '}
+                  <Typography
+                    color="primary.main"
+                    component="span"
+                    variant="inherit"
+                  >
+                    xmenu
+                  </Typography>
+                </Typography>
+              </DashedBorder>
+              <Typography
+                color="neutral.300"
+                sx={{ fontWeight: 400, textAlign: 'center', fontSize: 18 }}
+              >
+                Sleek and versatile menu components, built on Material UI, are
+                designed to elevate your Front-End experience through
+                customizable configurations.
+              </Typography>
+              <Stack
+                direction="row"
+                spacing={2}
+                sx={{ justifyContent: 'center' }}
+              >
+                <Button
+                  variant="contained"
+                  onClick={() => {
+                    history.push('/guide');
+                  }}
+                >
+                  Guide
+                </Button>
+                <Button
+                  onClick={() => {
+                    history.push('/components/menu-item');
+                  }}
+                >
+                  Components
+                </Button>
+              </Stack>
+            </Stack>
           }
-          sx={{ height: 'auto', width: '1900px' }}
-        />
-      </Box>
-      <Container
-        maxWidth="md"
-        sx={{ position: 'relative', py: '120px', zIndex: 3 }}
-      >
-        <Stack spacing={4}>
-          <Stack spacing={2}>
-            <Typography
-              sx={{
-                fontSize: '3.5rem',
-                fontWeight: 600,
-                lineHeight: 1.2,
-                textAlign: 'center',
-              }}
-            >
-              Develop the future, we’ll make it {''}
-              <Typography
-                color="primary.main"
-                component="span"
-                variant="inherit"
-              >
-                SEAMLESS
-              </Typography>{' '}
-              !
-            </Typography>
-            <Typography
-              color="neutral.300"
-              sx={{ fontWeight: 400, textAlign: 'center' }}
-              variant="h5"
-            >
-              The{' '}
-              <Typography
-                color="primary.main"
-                component="span"
-                variant="inherit"
-              >
-                XComponents
-              </Typography>{' '}
-              is built on top of MUI, an efficient, elegant, and continuously
-              updated front-end component library.
-            </Typography>
-          </Stack>
-          <Stack direction="row" spacing={2} sx={{ justifyContent: 'center' }}>
-            <Button
-              variant="contained"
-              onClick={() => {
-                history.push('/guide');
-              }}
-            >
-              Guide
-            </Button>
-            <Button
-              onClick={() => {
-                history.push('/components');
-              }}
-            >
-              Components
-            </Button>
-          </Stack>
-          <Stack
-            direction="row"
-            spacing={1}
-            sx={{ alignItems: 'center', justifyContent: 'center ' }}
-          >
-            <AvatarGroup>
-              <Avatar alt="User 5" src="/assets/avatar-5.png" />
-              <Avatar alt="User 1" src="/assets/avatar-1.png" />
-              <Avatar alt="User 2" src="/assets/avatar-2.png" />
-            </AvatarGroup>
-            <Typography
-              color="neutral.300"
-              sx={{ whiteSpace: 'nowrap' }}
-              variant="caption"
-            >
-              <Typography
-                color="inherit"
-                component="span"
-                sx={{ fontWeight: 700 }}
-                variant="inherit"
-              >
-                4.7/5
-              </Typography>{' '}
-              based on (100+ reviews)
-            </Typography>
-          </Stack>
-        </Stack>
+        >
+          <Compare
+            firstImage="/menu-light.png"
+            secondImage="/menu-dark.png"
+            autoplay
+            sx={{
+              margin: '40px auto',
+              width: 580,
+              height: 520,
+              boxShadow: '0 0 0 20px rgba(125,125,125,.3)',
+              borderRadius: 1,
+            }}
+          ></Compare>
+        </ContainerScroll>
       </Container>
     </Box>
   );
+  x;
 }

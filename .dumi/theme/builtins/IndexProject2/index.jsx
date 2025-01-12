@@ -1,7 +1,10 @@
 import Stack from '@mui/material/Stack';
-import React from 'react';
 
-import { HorizontalMenu } from '@totalizer/xmenu';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+
+import { BaseMenuList, HorizontalMenu, SidebarMenu } from '@totalizer/xmenu';
+import options from './options.jsx';
 
 import DoNotTouchIcon from '@mui/icons-material/DoNotTouch';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -11,7 +14,7 @@ import ContrastIcon from '@mui/icons-material/Contrast';
 import Diversity3Icon from '@mui/icons-material/Diversity3';
 import KeyIcon from '@mui/icons-material/Key';
 
-const options = [
+const hOptions = [
   {
     icon: <SettingsIcon />,
     title: 'Settings',
@@ -45,6 +48,7 @@ const options = [
   {
     icon: <Diversity3Icon />,
     title: 'Team',
+    open: true,
     children: [
       {
         title: 'Create',
@@ -66,17 +70,50 @@ const options = [
 ];
 
 export default () => {
-  const [title, setTitle] = React.useState('Keys');
-
   return (
-    <Stack alignItems="center">
-      <HorizontalMenu
-        options={options}
-        isSelected={(item) => item.title === title}
-        onClick={(item) => {
-          if (!item.children) setTitle(item.title);
+    <Box
+      sx={{
+        display: 'flex',
+        p: 10,
+        boxSizing: 'border-box',
+      }}
+    >
+      <Box
+        sx={{
+          p: 4,
+          border: 1,
+          borderColor: 'divider',
         }}
-      />
-    </Stack>
+      >
+        <HorizontalMenu
+          component={Paper}
+          sx={{
+            p: 1,
+            width: 500,
+            mb: 3,
+          }}
+          options={hOptions}
+        />
+
+        <Stack direction={'row'} spacing={32}>
+          <SidebarMenu
+            component={Paper}
+            sx={{
+              width: 50,
+              borderRadius: 2,
+            }}
+            options={options}
+          />
+          <BaseMenuList
+            component={Paper}
+            sx={{
+              width: 200,
+              borderRadius: 2,
+            }}
+            options={options}
+          ></BaseMenuList>
+        </Stack>
+      </Box>
+    </Box>
   );
 };

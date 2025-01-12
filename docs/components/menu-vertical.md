@@ -4,7 +4,7 @@ toc: content
 mobile: false
 ---
 
-# Vertical Menu
+# VerticalMenu
 
 <code src="./examples/menu-vertical" ></code>
 
@@ -20,4 +20,4 @@ mobile: false
 
 ### MenuItem Props
 
-View Detailed API Configuration , [Base Menu List](./menu-list)
+View Detailed API Configuration , [BaseMenuList](./menu-list)

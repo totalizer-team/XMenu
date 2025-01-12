@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { Box } from '@mui/material';
 
-import BaseMenuList from '@totalizer/xmenu/BaseMenuList';
+import { BaseMenuList } from '@totalizer/xmenu';
 
 import options from './options';
 

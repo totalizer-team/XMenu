@@ -7,9 +7,7 @@ toc: content
 mobile: false
 ---
 
-# Context Menu
-
-## Demo
+# ContextMenu
 
 <code src="./examples/menu-context" ></code>
 
@@ -25,4 +23,4 @@ mobile: false
 
 ### MenuItem Props
 
-View Detailed API Configuration , [Base Menu List](./menu-list)
+View Detailed API Configuration , [BaseMenuList](./menu-list)

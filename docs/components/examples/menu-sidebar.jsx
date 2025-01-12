@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SidebarMenu from '@totalizer/xmenu/SidebarMenu';
+import { SidebarMenu } from '@totalizer/xmenu';
 
 import options from './options';
 
