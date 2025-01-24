@@ -1,8 +1,8 @@
 # Guide
 
-> [ 0.0.1-beta.4 ] This project is currently in its testing phase, with the official release just around the corner.
-
 Sleek and versatile menu components, built on Material UI, are designed to elevate your Front-End experience through customizable configurations.
+
+<img style="border:2px solid #ddd;border-radius:8px;" width="400px" src="/menu.png" />
 
 ## Installation
 

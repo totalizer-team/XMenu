@@ -1,4 +1,4 @@
-import Stack from '@mui/material/Stack';
+import Paper from '@mui/material/Paper';
 import { VerticalMenu } from '@totalizer/xmenu';
 import React from 'react';
 
@@ -8,7 +8,7 @@ export default () => {
   const [title, setTitle] = React.useState('Keys');
 
   return (
-    <Stack alignItems="center">
+    <Paper sx={{ width: 250, margin: '0 auto' }}>
       <VerticalMenu
         options={options}
         isSelected={(item) => item.title === title}
@@ -16,6 +16,6 @@ export default () => {
           if (!item.children) setTitle(item.title);
         }}
       />
-    </Stack>
+    </Paper>
   );
 };

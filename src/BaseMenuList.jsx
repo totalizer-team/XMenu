@@ -1,5 +1,9 @@
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import { Box, Divider, Popover, Typography } from '@mui/material';
+import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider';
+import Popover from '@mui/material/Popover';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
 import React, { useRef, useState } from 'react';
 import BaseMenuItem from './BaseMenuItem';
 import hasSelectedNode from './utils/hasSelectedNode';
@@ -16,13 +20,7 @@ const COMPONENTS = {
   Divider: () => <Divider />,
 };
 
-const Expand = ({
-  item = {},
-  onClick = () => {},
-  isSelected = () => {},
-  sx = {},
-  ...other
-}) => {
+const Expand = ({ item = {}, onClick = () => {}, isSelected = () => {} }) => {
   const itemRef = useRef(null);
   const [expanded, setExpanded] = useState(false);
   const onExpanded = () => {
@@ -32,12 +30,13 @@ const Expand = ({
     setExpanded(false);
   };
   return (
-    <Box>
+    <Box sx={{ px: 0.5 }}>
       <BaseMenuItem
         item={item}
         onMouseEnter={onExpanded}
         onMouseLeave={onClose}
         selected={hasSelectedNode(isSelected, item)}
+        actived={expanded}
         cb={(e) => onClick(item, e)}
         _ref={itemRef}
         extra={
@@ -48,9 +47,6 @@ const Expand = ({
             }}
           />
         }
-        sx={{
-          mx: 0.5,
-        }}
       />
 
       <Popover
@@ -89,7 +85,6 @@ const Expand = ({
             onClose();
           }}
           isSelected={isSelected}
-          {...other}
         />
       </Popover>
     </Box>
@@ -104,7 +99,7 @@ const MenuList = ({
   ...other
 }) => {
   return (
-    <Box sx={{ py: 0.5, minWidth: 200, maxWidth: 400, ...sx }} {...other}>
+    <Stack sx={{ py: 0.5, ...sx }} {...other} spacing={0.5}>
       {options.map((item, i) => {
         if (item.c && COMPONENTS.hasOwnProperty(item.c)) {
           const C = COMPONENTS[item.c];
@@ -118,26 +113,22 @@ const MenuList = ({
               item={item}
               onClick={onClick}
               isSelected={isSelected}
-              sx={sx}
-              {...other}
             />
           );
         }
         return (
-          <BaseMenuItem
-            key={i}
-            item={item}
-            cb={(el, e) => {
-              onClick(el, e);
-            }}
-            selected={isSelected(item)}
-            sx={{
-              mx: 0.5,
-            }}
-          />
+          <Box key={i} sx={{ px: 0.5 }}>
+            <BaseMenuItem
+              item={item}
+              cb={(el, e) => {
+                onClick(el, e);
+              }}
+              selected={isSelected(item)}
+            />
+          </Box>
         );
       })}
-    </Box>
+    </Stack>
   );
 };
 

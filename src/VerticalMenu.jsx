@@ -1,5 +1,8 @@
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import { Box, Divider, Typography } from '@mui/material';
+import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
 import React, { useRef, useState } from 'react';
 import BaseMenuItem from './BaseMenuItem';
 import hasSelectedNode from './utils/hasSelectedNode';
@@ -22,15 +25,13 @@ const Expand = ({
   isSelected = () => {
     return false;
   },
-  sx = {},
-  ...other
 }) => {
   const hasSelected = hasSelectedNode(isSelected, item);
   const itemRef = useRef(null);
   const [expanded, setExpanded] = useState(hasSelected);
 
   return (
-    <Box>
+    <Box sx={{ px: 0.5 }}>
       <BaseMenuItem
         item={item}
         onClick={() => {
@@ -50,9 +51,6 @@ const Expand = ({
             }}
           />
         }
-        sx={{
-          mx: 0.5,
-        }}
       />
 
       <Box
@@ -81,8 +79,6 @@ const Expand = ({
             onClick(el, e);
           }}
           isSelected={isSelected}
-          sx={sx}
-          {...other}
         />
       </Box>
     </Box>
@@ -99,7 +95,7 @@ const VerticalMenu = ({
   ...other
 }) => {
   return (
-    <Box sx={{ py: 0.5, minWidth: 200, maxWidth: 400, ...sx }} {...other}>
+    <Stack sx={{ py: 0.5, ...sx }} {...other} spacing={0.5}>
       {options.map((item, i) => {
         if (item.c && COMPONENTS.hasOwnProperty(item.c)) {
           const C = COMPONENTS[item.c];
@@ -113,26 +109,22 @@ const VerticalMenu = ({
               item={item}
               onClick={onClick}
               isSelected={isSelected}
-              sx={sx}
-              {...other}
             />
           );
         }
         return (
-          <BaseMenuItem
-            key={i}
-            item={item}
-            cb={(el, e) => {
-              onClick(el, e);
-            }}
-            selected={isSelected(item)}
-            sx={{
-              mx: 0.5,
-            }}
-          />
+          <Box key={i} sx={{ px: 0.5 }}>
+            <BaseMenuItem
+              item={item}
+              cb={(el, e) => {
+                onClick(el, e);
+              }}
+              selected={isSelected(item)}
+            />
+          </Box>
         );
       })}
-    </Box>
+    </Stack>
   );
 };
 

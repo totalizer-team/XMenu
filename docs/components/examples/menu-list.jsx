@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Box } from '@mui/material';
+import { Paper } from '@mui/material';
 
 import { BaseMenuList } from '@totalizer/xmenu';
 
@@ -9,7 +9,7 @@ import options from './options';
 export default () => {
   const [title, setTitle] = useState('');
   return (
-    <Box sx={{ width: 250, margin: '0 auto' }}>
+    <Paper sx={{ width: 250, margin: '0 auto' }}>
       <BaseMenuList
         options={options}
         onClick={(item) => {
@@ -19,6 +19,6 @@ export default () => {
         }}
         isSelected={(item) => item.title === title}
       />
-    </Box>
+    </Paper>
   );
 };

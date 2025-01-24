@@ -1,4 +1,4 @@
-import { Menu } from '@mui/material';
+import Menu from '@mui/material/Menu';
 import * as React from 'react';
 import BaseMenuList from './BaseMenuList';
 

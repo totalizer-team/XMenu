@@ -68,7 +68,7 @@ export default function Hero() {
                 sx={{ justifyContent: 'center' }}
               >
                 <Button
-                  variant="contained"
+                  variant="outlined"
                   onClick={() => {
                     history.push('/guide');
                   }}

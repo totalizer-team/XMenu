@@ -1,14 +1,13 @@
 /* eslint-disable react/no-array-index-key */
-import {
-  Avatar,
-  Chip,
-  ListItemAvatar,
-  ListItemIcon,
-  ListItemText,
-  MenuItem,
-  Stack,
-  Typography,
-} from '@mui/material';
+import Avatar from '@mui/material/Avatar';
+import Chip from '@mui/material/Chip';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import MenuItem from '@mui/material/MenuItem';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
+
 import { useTheme } from '@mui/material/styles';
 
 import React from 'react';
@@ -17,12 +16,14 @@ export default ({
   _ref = null,
   item = {},
   selected = false,
+  actived = false,
   cb = () => {},
   extra = null,
   sx,
   ...other
 }) => {
   const theme = useTheme();
+  const isDark = theme.palette.mode === 'dark';
 
   const {
     avatar = '',
@@ -51,6 +52,11 @@ export default ({
         px: 1,
         minHeight: '0px !important',
         borderRadius: 1,
+        bgcolor: actived
+          ? isDark
+            ? 'rgba(255,255,255,.08)'
+            : 'rgba(0,0,0,.04)'
+          : '',
         ...sx,
       }}
       {...other}

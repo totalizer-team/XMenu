@@ -1,6 +1,6 @@
 {
   "name": "@totalizer/xmenu",
-  "version": "0.0.1-beta.4",
+  "version": "0.0.2",
   "description": "Advanced React Components",
   "license": "MIT",
   "main": "./dist/index",

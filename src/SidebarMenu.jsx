@@ -1,12 +1,11 @@
 /* eslint-disable react/no-array-index-key */
-import {
-  Avatar,
-  Box,
-  IconButton,
-  Popover,
-  Stack,
-  Tooltip,
-} from '@mui/material';
+import Avatar from '@mui/material/Avatar';
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import Popover from '@mui/material/Popover';
+import Stack from '@mui/material/Stack';
+import Tooltip from '@mui/material/Tooltip';
+
 import { useTheme } from '@mui/material/styles';
 
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';

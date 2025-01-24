@@ -1,5 +1,6 @@
 /* eslint-disable react/no-array-index-key */
-import { Popover, Stack } from '@mui/material';
+import Popover from '@mui/material/Popover';
+import Stack from '@mui/material/Stack';
 
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import React, { useRef, useState } from 'react';
@@ -33,6 +34,7 @@ const ListContent = ({
         onMouseEnter={onExpanded}
         onMouseLeave={onClose}
         selected={hasSelectedNode(isSelected, item)}
+        actived={expanded}
         cb={(e) => {
           onClick(item, e);
         }}
