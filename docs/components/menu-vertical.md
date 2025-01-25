@@ -1,4 +1,6 @@
 ---
+group:
+  title: components
 order: 1
 toc: content
 mobile: false

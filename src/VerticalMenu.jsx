@@ -25,13 +25,30 @@ const Expand = ({
   isSelected = () => {
     return false;
   },
+  _inner = false,
 }) => {
   const hasSelected = hasSelectedNode(isSelected, item);
   const itemRef = useRef(null);
   const [expanded, setExpanded] = useState(hasSelected);
 
   return (
-    <Box sx={{ px: 0.5 }}>
+    <Box
+      sx={{
+        position: 'relative',
+        px: 0.5,
+        ':after': {
+          content: '""',
+          display: _inner ? 'block' : 'none',
+          position: 'absolute',
+          left: -10,
+          top: 16,
+          width: '10px',
+          height: '2px',
+          transform: 'translateY(-1px)',
+          backgroundColor: 'divider',
+        },
+      }}
+    >
       <BaseMenuItem
         item={item}
         onClick={() => {
@@ -66,9 +83,9 @@ const Expand = ({
             display: 'block',
             position: 'absolute',
             top: 0,
-            left: 20,
-            bottom: 0,
-            width: '1px',
+            left: 15,
+            bottom: 19,
+            width: '2px',
             backgroundColor: 'divider',
           },
         }}
@@ -79,6 +96,7 @@ const Expand = ({
             onClick(el, e);
           }}
           isSelected={isSelected}
+          _inner={true}
         />
       </Box>
     </Box>
@@ -91,6 +109,7 @@ const VerticalMenu = ({
   isSelected = () => {
     return false;
   },
+  _inner = false,
   sx = {},
   ...other
 }) => {
@@ -109,11 +128,29 @@ const VerticalMenu = ({
               item={item}
               onClick={onClick}
               isSelected={isSelected}
+              _inner={_inner}
             />
           );
         }
         return (
-          <Box key={i} sx={{ px: 0.5 }}>
+          <Box
+            key={i}
+            sx={{
+              position: 'relative',
+              px: 0.5,
+              ':after': {
+                content: '""',
+                display: _inner ? 'block' : 'none',
+                position: 'absolute',
+                left: -10,
+                top: 16,
+                width: '12px',
+                height: '2px',
+                transform: 'translateY(-1px)',
+                backgroundColor: 'divider',
+              },
+            }}
+          >
             <BaseMenuItem
               item={item}
               cb={(el, e) => {

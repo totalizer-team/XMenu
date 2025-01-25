@@ -1,3 +1,4 @@
+import ArticleIcon from '@mui/icons-material/Article';
 import RadioButtonCheckedSharpIcon from '@mui/icons-material/RadioButtonCheckedSharp';
 import { VerticalMenu } from '@totalizer/xmenu';
 import { history, useLocation, useRouteMeta, useSidebarData } from 'dumi';
@@ -12,27 +13,46 @@ const Sidebar = () => {
   if (!sidebar) return null;
 
   const [mainOptions, groupOptions] = useMemo(() => {
-    const options = sidebar.map((item) => {
-      return {
-        title: item.title,
-        secondary: item.children.length,
-        children: item.children.map((el) => ({
-          icon: (
-            <RadioButtonCheckedSharpIcon sx={{ fontSize: '10px !important' }} />
-          ),
-          title: el.title,
-          link: el.link,
-          onClick: () => {
-            history.push(el.link);
-          },
-        })),
-      };
+    const main = [];
+    const groups = [];
+
+    sidebar.forEach((item) => {
+      if (item.title) {
+        const group = [];
+        group.push({
+          c: 'Title',
+          title: item.title,
+        });
+        item.children.forEach((el) =>
+          group.push({
+            icon: (
+              <RadioButtonCheckedSharpIcon
+                sx={{ ml: 0.5, mr: 0.5, fontSize: '10px !important' }}
+              />
+            ),
+            title: el.title,
+            link: el.link,
+            onClick: () => {
+              history.push(el.link);
+            },
+          }),
+        );
+        groups.push(group);
+      } else {
+        item.children.forEach((el) =>
+          main.push({
+            icon: <ArticleIcon />,
+            title: el.title,
+            link: el.link,
+            onClick: () => {
+              history.push(el.link);
+            },
+          }),
+        );
+      }
     });
 
-    if (options[0].title) return [[], options];
-    if (options.length > 1)
-      return [options[0].children, options.filter((el, i) => i !== 0)];
-    return [options[0].children, []];
+    return [main, groups];
   }, [sidebar]);
 
   return (
@@ -43,12 +63,14 @@ const Sidebar = () => {
           isSelected={(el) => el.link === pathname}
         />
       )}
-      {!!groupOptions.length && (
-        <VerticalMenu
-          options={groupOptions}
-          isSelected={(el) => el.link === pathname}
-        />
-      )}
+      {!!groupOptions.length &&
+        groupOptions.map((group, i) => (
+          <VerticalMenu
+            key={group[0].title}
+            options={group}
+            isSelected={(el) => el.link === pathname}
+          />
+        ))}
     </div>
   );
 };
