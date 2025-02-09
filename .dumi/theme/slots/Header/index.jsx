@@ -1,4 +1,4 @@
-import { Divider, Stack } from '@mui/material';
+import { Divider, Stack, Typography } from '@mui/material';
 
 import SearchBar from 'dumi/theme/slots/SearchBar';
 import ColorSwitch from '../ColorSwitch';
@@ -16,6 +16,8 @@ const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const { themeConfig } = useSiteData();
 
+  const { pkg } = useSiteData();
+
   return (
     <Stack
       sx={{
@@ -27,6 +29,8 @@ const Header = () => {
         top: 0,
         flexGrow: 1,
         backgroundColor: 'background.paper',
+        borderBottom: 1,
+        borderColor: 'divider',
       }}
       direction="row"
       alignItems="center"
@@ -38,6 +42,13 @@ const Header = () => {
       </Stack>
       <Stack direction="row" alignItems="center">
         <SearchBar />
+        <Divider
+          orientation="vertical"
+          variant="middle"
+          flexItem
+          sx={{ mr: 2, ml: 2 }}
+        />
+        <Typography fontSize={14}>v{pkg.version}</Typography>
         <Divider
           orientation="vertical"
           variant="middle"
