@@ -32,6 +32,7 @@ const Sidebar = () => {
             ),
             title: el.title,
             link: el.link,
+            label: el.title === 'File Tree' ? 'beta' : '',
             onClick: () => {
               history.push(el.link);
             },

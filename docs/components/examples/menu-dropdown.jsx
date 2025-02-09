@@ -12,7 +12,7 @@ export default () => {
     <Stack alignItems="center">
       <DropdownMenu
         options={options}
-        onClick={(item) => {
+        onSelect={(item) => {
           console.log(item);
         }}
       >

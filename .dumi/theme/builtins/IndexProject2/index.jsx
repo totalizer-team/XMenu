@@ -3,7 +3,12 @@ import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 
-import { BaseMenuList, HorizontalMenu, SidebarMenu } from '@totalizer/xmenu';
+import {
+  BaseMenuList,
+  FileTree,
+  HorizontalMenu,
+  SidebarMenu,
+} from '@totalizer/xmenu';
 import options from './options.jsx';
 
 import DoNotTouchIcon from '@mui/icons-material/DoNotTouch';
@@ -69,9 +74,39 @@ const hOptions = [
   },
 ];
 
+const content = [
+  {
+    name: 'src',
+    open: true,
+    children: [
+      {
+        name: 'components',
+        open: true,
+        children: [
+          {
+            name: 'header.tsx',
+          },
+          {
+            name: 'footer.tsx',
+          },
+        ],
+      },
+      {
+        name: 'pages',
+        open: true,
+        children: [{ name: 'index.tsx' }, { name: 'dashboard.tsx' }],
+      },
+    ],
+  },
+  {
+    name: 'package.json',
+  },
+];
+
 export default () => {
   return (
     <Box
+      component={Paper}
       sx={{
         display: 'flex',
         p: 10,
@@ -89,13 +124,13 @@ export default () => {
           component={Paper}
           sx={{
             p: 1,
-            width: 500,
+            width: 713,
             mb: 3,
           }}
           options={hOptions}
         />
 
-        <Stack direction={'row'} spacing={32}>
+        <Stack direction={'row'}>
           <SidebarMenu
             component={Paper}
             sx={{
@@ -107,11 +142,20 @@ export default () => {
           <BaseMenuList
             component={Paper}
             sx={{
+              ml: 32,
               width: 200,
               borderRadius: 2,
             }}
             options={options}
           ></BaseMenuList>
+          <FileTree
+            component={Paper}
+            sx={{
+              ml: 4,
+              p: 2,
+            }}
+            options={content}
+          />
         </Stack>
       </Box>
     </Box>

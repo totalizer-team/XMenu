@@ -1,6 +1,6 @@
 ---
 group:
-  title: components
+  title: Menu
 order: 0
 toc: content
 mobile: false
@@ -22,7 +22,7 @@ mobile: false
 | ---------- | ----------------- | -------- | ----------- |
 | options    | `array<MenuItem>` | `[]`     |             |
 | isSelected | `function`        | `()=>{}` |             |
-| onClick    | `function`        | `()=>{}` |             |
+| onSelect   | `function`        | `()=>{}` |             |
 
 ### MenuItem Props
 

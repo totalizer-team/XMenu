@@ -57,7 +57,7 @@ export default ({ data }) => {
       variant="horizontal"
       options={config}
       isSelected={(item) => pathname.startsWith(item.path)}
-      onClick={(item) => {
+      onSelect={(item) => {
         if (item.link) history.push(item.link);
       }}
     />

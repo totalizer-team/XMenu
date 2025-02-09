@@ -92,8 +92,8 @@ export default function Hero() {
             autoplay
             sx={{
               margin: '40px auto',
-              width: 580,
-              height: 520,
+              width: 630,
+              height: 425,
               boxShadow: '0 0 0 20px rgba(125,125,125,.3)',
               borderRadius: 1,
             }}

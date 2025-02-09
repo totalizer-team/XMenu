@@ -18,7 +18,7 @@ const IconItem = ({
   _ref = null,
   item = {},
   selected = false,
-  cb = () => {},
+  onSelect = () => {},
   extra = null,
   sx,
   ...other
@@ -44,8 +44,8 @@ const IconItem = ({
           selected={selected}
           disabled={disabled}
           onClick={(e) => {
-            onClick(e);
-            cb(e);
+            onClick(e, item);
+            onSelect(item);
             e.stopPropagation();
           }}
           sx={{
@@ -70,7 +70,7 @@ const ListContent = ({
   item,
   open,
   isSelected,
-  onClick = () => {},
+  onSelect = () => {},
   sx = {},
   ...other
 }) => {
@@ -94,9 +94,6 @@ const ListContent = ({
         onMouseEnter={onExpanded}
         onMouseLeave={onClose}
         selected={hasSelectedNode(isSelected, item)}
-        cb={(e) => {
-          onClick(item, e);
-        }}
         extra={
           <KeyboardArrowDownIcon
             sx={{
@@ -138,8 +135,8 @@ const ListContent = ({
       >
         <BaseMenuList
           options={item.children}
-          onClick={(el, e) => {
-            onClick(el, e);
+          onSelect={(el) => {
+            onSelect(el);
             onClose();
           }}
           isSelected={isSelected}
@@ -160,9 +157,7 @@ export default function BaseMenuBar({
   isSelected = () => {
     return false;
   },
-  onClick = () => {
-    return false;
-  },
+  onSelect = () => {},
   sx = {},
   ...other
 }) {
@@ -176,7 +171,7 @@ export default function BaseMenuBar({
               key={i}
               item={item}
               isSelected={isSelected}
-              onClick={onClick}
+              onSelect={onSelect}
             />
           );
         } else {
@@ -185,8 +180,8 @@ export default function BaseMenuBar({
               key={i}
               item={item}
               selected={isSelected(item)}
-              cb={(e) => {
-                onClick(item, e);
+              onSelect={(el) => {
+                onSelect(el);
               }}
             />
           );

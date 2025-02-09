@@ -104,7 +104,7 @@ export const Card = ({ isDark, rotate, scale, children }) => {
           width: '100%',
           overflow: 'hidden',
           borderRadius: 2,
-          backgroundColor: isDark ? '#18181b' : 'rgba(0,0,0,0)',
+          backgroundColor: isDark ? '#18181b' : '#ddd',
           // padding: isDark ? '0' : '1rem',
         }}
       >

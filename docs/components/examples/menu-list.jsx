@@ -12,12 +12,10 @@ export default () => {
     <Paper sx={{ width: 250, margin: '0 auto' }}>
       <BaseMenuList
         options={options}
-        onClick={(item) => {
-          console.log(item);
-          if (item.children) return false;
-          else setTitle(item.title);
-        }}
         isSelected={(item) => item.title === title}
+        onSelect={(item) => {
+          setTitle(item.title);
+        }}
       />
     </Paper>
   );

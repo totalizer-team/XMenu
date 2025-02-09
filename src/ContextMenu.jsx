@@ -6,7 +6,7 @@ export default function ContextMenu({
   width = '',
   children,
   options,
-  onClick = () => {},
+  onSelect = () => {},
   onOpenChange = () => {},
   sx = {},
   ...other
@@ -47,8 +47,8 @@ export default function ContextMenu({
       >
         <BaseMenuList
           options={options}
-          onClick={(el, e) => {
-            onClick(el, e);
+          onSelect={(el) => {
+            onSelect(el);
             handleClose();
           }}
           sx={{

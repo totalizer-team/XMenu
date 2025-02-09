@@ -20,7 +20,7 @@ const COMPONENTS = {
   Divider: () => <Divider />,
 };
 
-const Expand = ({ item = {}, onClick = () => {}, isSelected = () => {} }) => {
+const Expand = ({ item = {}, isSelected = () => {}, onSelect = () => {} }) => {
   const itemRef = useRef(null);
   const [expanded, setExpanded] = useState(false);
   const onExpanded = () => {
@@ -37,7 +37,6 @@ const Expand = ({ item = {}, onClick = () => {}, isSelected = () => {} }) => {
         onMouseLeave={onClose}
         selected={hasSelectedNode(isSelected, item)}
         actived={expanded}
-        cb={(e) => onClick(item, e)}
         _ref={itemRef}
         extra={
           <KeyboardArrowRightIcon
@@ -80,11 +79,11 @@ const Expand = ({ item = {}, onClick = () => {}, isSelected = () => {} }) => {
       >
         <MenuList
           options={item.children}
-          onClick={(el, e) => {
-            onClick(el, e);
-            onClose();
-          }}
           isSelected={isSelected}
+          onSelect={(el) => {
+            onSelect(el);
+            if (!el.hasOwnProperty('children')) onClose();
+          }}
         />
       </Popover>
     </Box>
@@ -93,13 +92,13 @@ const Expand = ({ item = {}, onClick = () => {}, isSelected = () => {} }) => {
 
 const MenuList = ({
   options = [],
-  onClick = () => {},
   isSelected = () => {},
+  onSelect = () => {},
   sx = {},
   ...other
 }) => {
   return (
-    <Stack sx={{ py: 0.5, ...sx }} {...other} spacing={0.5}>
+    <Stack sx={{ py: 0.5, ...sx }} spacing={0.5} {...other}>
       {options.map((item, i) => {
         if (item.c && COMPONENTS.hasOwnProperty(item.c)) {
           const C = COMPONENTS[item.c];
@@ -111,7 +110,7 @@ const MenuList = ({
             <Expand
               key={i}
               item={item}
-              onClick={onClick}
+              onSelect={onSelect}
               isSelected={isSelected}
             />
           );
@@ -120,8 +119,8 @@ const MenuList = ({
           <Box key={i} sx={{ px: 0.5 }}>
             <BaseMenuItem
               item={item}
-              cb={(el, e) => {
-                onClick(el, e);
+              onSelect={(el) => {
+                onSelect(el);
               }}
               selected={isSelected(item)}
             />

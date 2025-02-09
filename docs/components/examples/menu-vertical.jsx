@@ -12,8 +12,8 @@ export default () => {
       <VerticalMenu
         options={options}
         isSelected={(item) => item.title === title}
-        onClick={(item) => {
-          if (!item.children) setTitle(item.title);
+        onSelect={(item) => {
+          setTitle(item.title);
         }}
       />
     </Paper>

@@ -11,7 +11,7 @@ import hasSelectedNode from './utils/hasSelectedNode';
 const ListContent = ({
   item,
   isSelected,
-  onClick = () => {},
+  onSelect = () => {},
   sx = {},
   ...other
 }) => {
@@ -35,9 +35,6 @@ const ListContent = ({
         onMouseLeave={onClose}
         selected={hasSelectedNode(isSelected, item)}
         actived={expanded}
-        cb={(e) => {
-          onClick(item, e);
-        }}
         extra={
           <KeyboardArrowDownIcon
             sx={{
@@ -79,8 +76,8 @@ const ListContent = ({
       >
         <BaseMenuList
           options={item.children}
-          onClick={(el, e) => {
-            onClick(el, e);
+          onSelect={(el) => {
+            onSelect(el);
             onClose();
           }}
           isSelected={isSelected}
@@ -101,9 +98,7 @@ const HorizontalMenu = function ({
   isSelected = () => {
     return false;
   },
-  onClick = () => {
-    return false;
-  },
+  onSelect = () => {},
   sx = {},
   ...other
 }) {
@@ -126,7 +121,7 @@ const HorizontalMenu = function ({
               key={i}
               item={item}
               isSelected={isSelected}
-              onClick={onClick}
+              onSelect={onSelect}
             />
           );
         } else {
@@ -135,8 +130,8 @@ const HorizontalMenu = function ({
               key={i}
               item={item}
               selected={isSelected(item)}
-              cb={(e) => {
-                onClick(item, e);
+              onSelect={(e) => {
+                onSelect(item, e);
               }}
             />
           );

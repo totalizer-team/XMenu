@@ -15,8 +15,11 @@ import React from 'react';
 export default ({
   _ref = null,
   item = {},
+  icon = null,
+  path = '',
   selected = false,
   actived = false,
+  cb = () => {},
   onSelect = () => {},
   extra = null,
   sx,
@@ -27,8 +30,7 @@ export default ({
 
   const {
     avatar = '',
-    icon = null,
-    title = '',
+    name = '',
     info = '',
     secondary = '',
     label = '',
@@ -41,15 +43,16 @@ export default ({
     <MenuItem
       ref={_ref}
       onClick={(e) => {
-        onClick(e, item);
-        onSelect(item);
+        onClick(path, item, e);
+        cb(path, item, e);
+        onSelect(path, item);
         e.stopPropagation();
       }}
       selected={selected}
       disabled={disabled}
       sx={{
-        py: 0.75,
-        px: 1,
+        py: 0.25,
+        px: 0.25,
         minHeight: '0px !important',
         borderRadius: 1,
         bgcolor: actived
@@ -70,9 +73,9 @@ export default ({
         <ListItemIcon
           sx={{
             minWidth: '0 !important',
-            mr: 1,
+            mr: 0.5,
             '.MuiSvgIcon-root': {
-              fontSize: 18,
+              fontSize: 16,
               color: selected ? theme.palette.primary.main : 'inherit',
               transition: 'all 0.2s ease-in-out',
             },
@@ -95,7 +98,7 @@ export default ({
           color={selected ? 'primary' : 'inherit'}
           fontSize={14}
         >
-          {title}
+          {name}
         </Typography>
         {!!info && (
           <Typography

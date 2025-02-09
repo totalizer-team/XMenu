@@ -9,7 +9,7 @@ export default function ActionMenu({
   arrow = false,
   options,
   placement = 'bottom',
-  onClick = () => {},
+  onSelect = () => {},
   isSelected = () => {},
   sx = {},
   ...other
@@ -147,8 +147,8 @@ export default function ActionMenu({
       >
         <BaseMenuList
           options={options}
-          onClick={(el, e) => {
-            onClick(el, e);
+          onSelect={(el) => {
+            onSelect(el);
             setAnchorEl(null);
           }}
           isSelected={isSelected}

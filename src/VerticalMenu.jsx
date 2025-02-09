@@ -21,7 +21,7 @@ const COMPONENTS = {
 
 const Expand = ({
   item = {},
-  onClick = () => {},
+  onSelect = () => {},
   isSelected = () => {
     return false;
   },
@@ -51,11 +51,10 @@ const Expand = ({
     >
       <BaseMenuItem
         item={item}
-        onClick={() => {
+        selected={hasSelected}
+        onSelect={() => {
           setExpanded(!expanded);
         }}
-        selected={hasSelected}
-        cb={(e) => onClick(item, e)}
         _ref={itemRef}
         extra={
           <KeyboardArrowRightIcon
@@ -92,8 +91,8 @@ const Expand = ({
       >
         <VerticalMenu
           options={item.children}
-          onClick={(el, e) => {
-            onClick(el, e);
+          onSelect={(el) => {
+            onSelect(el);
           }}
           isSelected={isSelected}
           _inner={true}
@@ -105,7 +104,7 @@ const Expand = ({
 
 const VerticalMenu = ({
   options = [],
-  onClick = () => {},
+  onSelect = () => {},
   isSelected = () => {
     return false;
   },
@@ -126,7 +125,7 @@ const VerticalMenu = ({
             <Expand
               key={i}
               item={item}
-              onClick={onClick}
+              onSelect={onSelect}
               isSelected={isSelected}
               _inner={_inner}
             />
@@ -153,8 +152,8 @@ const VerticalMenu = ({
           >
             <BaseMenuItem
               item={item}
-              cb={(el, e) => {
-                onClick(el, e);
+              onSelect={(el) => {
+                onSelect(el);
               }}
               selected={isSelected(item)}
             />

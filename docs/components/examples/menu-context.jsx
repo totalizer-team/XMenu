@@ -11,7 +11,7 @@ export default () => {
     <Stack alignItems="center">
       <ContextMenu
         options={options}
-        onClick={(item) => {
+        onSelect={(item) => {
           console.log(item);
         }}
       >

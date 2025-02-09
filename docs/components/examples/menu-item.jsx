@@ -1,22 +1,53 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { Paper } from '@mui/material';
+import { Paper, Stack } from '@mui/material';
 
 import { BaseMenuItem } from '@totalizer/xmenu';
 
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 export default () => {
-  const [title, setTitle] = useState('');
   return (
-    <Paper sx={{ width: 250, margin: '0 auto' }}>
-      <BaseMenuItem
-        item={{
-          icon: <AccountCircleIcon />,
-          title: 'Profile',
-          secondary: '⇧⌘P',
-        }}
-      />
-    </Paper>
+    <Stack spacing={2} alignItems="center">
+      <Paper sx={{ width: 250 }}>
+        <BaseMenuItem
+          item={{
+            icon: <AccountCircleIcon />,
+            title: 'title',
+          }}
+        />
+      </Paper>
+
+      <Paper sx={{ width: 250 }}>
+        <BaseMenuItem
+          item={{
+            icon: <AccountCircleIcon />,
+            title: 'title',
+            label: '+1',
+          }}
+        />
+      </Paper>
+
+      <Paper sx={{ width: 250 }}>
+        <BaseMenuItem
+          item={{
+            icon: <AccountCircleIcon />,
+            title: 'title',
+            info: 'info',
+            secondary: 'secondary',
+          }}
+        />
+      </Paper>
+
+      <Paper sx={{ width: 250 }}>
+        <BaseMenuItem
+          item={{
+            avatar: 'https://mui.com/static/images/avatar/2.jpg',
+            title: 'title',
+            info: 'info',
+          }}
+        />
+      </Paper>
+    </Stack>
   );
 };
