@@ -1,14 +1,12 @@
 /* eslint-disable react/no-array-index-key */
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Popover from '@mui/material/Popover';
 import Stack from '@mui/material/Stack';
 import Tooltip from '@mui/material/Tooltip';
-
 import { useTheme } from '@mui/material/styles';
-
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import React, { useRef, useState } from 'react';
 import BaseMenuList from './BaseMenuList';
 import hasSelectedNode from './utils/hasSelectedNode';

@@ -1,5 +1,5 @@
 import Menu from '@mui/material/Menu';
-import * as React from 'react';
+import React from 'react';
 import BaseMenuList from './BaseMenuList';
 
 export default function ContextMenu({
